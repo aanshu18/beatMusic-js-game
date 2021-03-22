@@ -313,17 +313,9 @@ animal.eat.apply(human,[5,"grapes"]);  //after passing arguments in array in app
 
 /*
  Bind()
- return the fucntion definition which can be used later
+ return the fucntion definition which can be used later which can be called with arguments also
  
- 
-
-
-
-
-
-*/
-
-let animal = {
+ let animal = {
     name: 'dog',
     eat(a,b){
         console.log(this.name + " is eating " + a + " "+ b)
@@ -336,5 +328,110 @@ let human = {
 };
 
 let human_eat = animal.eat.bind(human);
-//we are binding human object, now human_eat will work as function
+we are binding human object, now human_eat will work as function
 human_eat(21,"apples");
+
+*/
+
+
+/*
+this keyword
+this is an object whose property is in the function
+return reference to whole current object 
+
+function a(){
+    console.log(this);
+}
+a()
+Here function a is the property of window object
+*/
+
+
+
+
+/*
+
+Arrow Function
+Used to make this keyword lexically bound, we use arrow functions
+
+this will get bound to current object
+
+Doesnt use function keyword
+
+let obj = {
+    name:'func_name',
+    print: function(){
+        console.log('a',this);
+        var second_fun = function(){
+            console.log('b',this);
+        }
+        second_fun();
+    }
+};
+obj.print();
+a {name: "func_name", print: ƒ}
+b Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+here second this refers to window object, not obj 
+so one way is to bind this second_fun fuinction to object obj using bind function, but arrow functions automatically does this to us
+
+let obj2 = {
+    name:'func_name',
+    print: function(){
+        console.log('a',this);
+        var second_fun = () => {
+            console.log('b',this);
+        }
+        second_fun();
+    }
+};
+obj2.print();
+a {name: "func_name", print: ƒ}
+b {name: "func_name", print: ƒ}
+
+*/
+
+
+let obj = {
+    name:'func_name',
+    print: function(){
+        console.log('a',this);
+        var second_fun = function(){
+            console.log('b',this);
+        }
+        second_fun();
+    }
+};
+obj.print();
+
+let obj2 = {
+    name:'func_name',
+    print: function(){
+        console.log('a',this);
+        var second_fun = () => {
+            console.log('b',this);
+        }
+        second_fun();
+    }
+};
+obj2.print();
+
+/*
+HIGHER order functions
+
+either take function as argument or return functionas as an argument
+
+set Interval function is an example
+
+*/
+let obj3 = {
+    name:'func_name',
+    obj_func(){
+        console.log(this);
+    }
+};
+
+function printt(){
+    console.log("hi");
+}
+
+setInterval(printt,1000);
