@@ -484,6 +484,50 @@ OOPS in JS
     console.log(son.name);
     console.log(father.isPrototypeOf(son));
     
+    hasOwnProperty(property) --used to check if this property is of this object or inherited
+
+
+    var parent = {
+    name: "Father",
+    sing(){
+        console.log("singing");
+    },
+    
+    eat: function(){
+        console.log("eating");
+    },
+    
+    drink: ()=>{
+        console.log(this.name+ " is drinking");
+    }
+    };
+
+    var child = {
+        name : "son",
+        eat: () =>{
+            console.log(this.name + " is eating");
+        }
+    };
+
+    child.__proto__ = parent;
+
+    for(property in child){
+        console.log(property + " "+ child.hasOwnProperty(property));
+
+    }
+
+    3. INHERITANCE
+
+    classical Inheritance same as Java
+    first parent class constructor will be called then child class constructor willl be called
+
+
+    Diff b/w classical and prototypical inheritance
+
+    1.classes are immutable which cannot be changed at runtime whereas prototypes may or may not be mutable
+    2.Multiple inheritance is a difficult task in classical inheritance as there are different types of classes available like abstract like abstract , interface, final  etc
+    3.object can easily inherit from multiple objects as only extension of object is required
+
 
 
 */
@@ -518,10 +562,22 @@ for(property in child){
 
 }
 
-for(property in child){
-    console.log(property + " "+ child.hasOwnProperty(property));
 
-}
+/*
+    POLYMORPHISM
+
+    1. Method Overloading
+    JS does not support classical method overloading like Java
+    It considers only last implementation of the method
+    It happens at compile time
+
+    2.Method Overriding
+    happens at runtime
+*/
+
+
+
+
 
 
 
