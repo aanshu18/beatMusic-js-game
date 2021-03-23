@@ -422,12 +422,12 @@ either take function as argument or return functionas as an argument
 
 set Interval function is an example
 
-*/
+setInterval example where a function is taken in argument
 let obj3 = {
     name:'func_name',
     obj_func(){
         console.log(this);
-    }
+    } 
 };
 
 function printt(){
@@ -435,3 +435,88 @@ function printt(){
 }
 
 setInterval(printt,1000);
+clearInterval(1);
+
+
+Example of function returning a function, helps in reducing code
+
+function age_req(r_age){
+
+    return function(age){
+        return age>=r_age;
+    }
+}
+
+let can_drive = age_req(18);
+let can_marry = age_req(21);
+console.log(can_drive(18));
+console.log(can_marry(19));
+
+these functionns are called first class functions when fucntions are treated as any other variables
+
+
+*/
+
+function age_req(r_age){
+
+    return function(age){
+        return age>=r_age;
+    }
+}
+
+
+
+/*
+
+OOPS in JS
+
+*/
+
+/*
+1. Encasulation
+    wrapping of data and functions
+ 
+    class Student{
+    constructor(roll,name){
+        this.name = name;
+        this.roll = roll;
+    }
+
+    attendance(){
+        console.log(this.name + " is present");
+        }
+    }
+
+    let student1 = new Student(12,"Anshu");
+    student1.attendance();
+
+    new keyword is used to create object and allocate memoery in heap
+    when new keyword is encountered , constructor is called
+
+*/
+
+
+/*
+2. Abstraction
+    hiding of unnecessary information
+    abstraction is implemented in JS using prototype
+     
+
+
+*/
+
+
+
+class Student{
+    constructor(roll,name){
+        this.name = name;
+        this.roll = roll;
+    }
+
+    attendance(){
+        console.log(this.name + " is present");
+    }
+}
+
+let student1 = new Student(12,"Anshu");
+student1.attendance();
