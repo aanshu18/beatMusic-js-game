@@ -231,18 +231,6 @@ for(item in arr)
 console.log(item);
  
 */
-console.log("testing");
-let arr = [1,2,3,4,5,6,7]
-
-arr.forEach(item => console.log(item+ " "));
-console.log("testing");
-
-
-for(item of arr)
-console.log(item);
-
-for(item in arr)
-console.log(item);
 
 /*
 FUNCTIONS
@@ -391,29 +379,7 @@ b {name: "func_name", print: ƒ}
 */
 
 
-let obj = {
-    name:'func_name',
-    print: function(){
-        console.log('a',this);
-        var second_fun = function(){
-            console.log('b',this);
-        }
-        second_fun();
-    }
-};
-obj.print();
 
-let obj2 = {
-    name:'func_name',
-    print: function(){
-        console.log('a',this);
-        var second_fun = () => {
-            console.log('b',this);
-        }
-        second_fun();
-    }
-};
-obj2.print();
 
 /*
 HIGHER order functions
@@ -457,19 +423,9 @@ these functionns are called first class functions when fucntions are treated as 
 
 */
 
-function age_req(r_age){
-
-    return function(age){
-        return age>=r_age;
-    }
-}
-
-
 
 /*
-
 OOPS in JS
-
 */
 
 /*
@@ -500,23 +456,72 @@ OOPS in JS
 2. Abstraction
     hiding of unnecessary information
     abstraction is implemented in JS using prototype
-     
+    
+    in JS we implement Abstraction usinng prototype
+
+    Prototypical inheritance
+    its an easy inheritance and allow one object to access properties of some other object
+    __proto__ is a property whihc is used to get and set prototypes
+    son.__proto__ = Father
+
+    prototypeOf() is a method provided by object which is available to everything as everything is object in JS
+    father.prototypeOf(son)  //true
+
+    let array1 = [1,2,3]    
+    console.log(array1.__proto__);
+    console.log(array1.__proto__.__proto__);
+    Array and functions are non primitive datatypes and are prototype of Object it self....that is array1.__proto__ refers to prototype of Array and array1.__proto__.__proto__ refers to prototype of.
+
+    console.log(Object.prototype);
+
+    console.log(array1.__proto__.__proto__.__proto__);
+    Object is root of all Object
+
+    let father = {
+    name:"father"
+    };
+    let son = Object.create(father);
+    console.log(son.name);
+    console.log(father.isPrototypeOf(son));
+    
 
 
 */
+console.log("testing here now");
 
-
-
-class Student{
-    constructor(roll,name){
-        this.name = name;
-        this.roll = roll;
+var parent = {
+    name: "Father",
+    sing(){
+        console.log("singing");
+    },
+    
+    eat: function(){
+        console.log("eating");
+    },
+    
+    drink: ()=>{
+        console.log(this.name+ " is drinking");
     }
+};
 
-    attendance(){
-        console.log(this.name + " is present");
+var child = {
+    name : "son",
+    eat: () =>{
+        console.log(this.name + " is eating");
     }
+};
+
+child.__proto__ = parent;
+
+for(property in child){
+    console.log(property + " "+ child.hasOwnProperty(property));
+
 }
 
-let student1 = new Student(12,"Anshu");
-student1.attendance();
+for(property in child){
+    console.log(property + " "+ child.hasOwnProperty(property));
+
+}
+
+
+
