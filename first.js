@@ -585,13 +585,7 @@ for(property in child){
 
     Exception handling
 
-
-*/
-console.log("here now");
-//no statement should be there in between the try and cathc  block
-
-
-function a(age){
+    function aaa(age){
     if(age<18){
                 try{
                 throw new Error("age is less than required age of 18");
@@ -605,10 +599,21 @@ function a(age){
                     console.log("finally always printed");
                 }
             }
-            else{
+    else{
                 console.log("yes you can vote");
-            }
-}
+        }
+};
 
 
-a(12);  
+aaa(12);  
+
+*/
+
+
+console.log("here   now");
+//no statement should be there in between the try and cathc  block
+
+
+
+
+
