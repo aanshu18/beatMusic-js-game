@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+body {
+    justify-content: center;
+    border: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.header {
+    padding: 70px;
+    font-family: "Helvetica Neue";
+    font-size: 48px;
+    justify-content:
+}
+
+.app-container {
+    justify-content: center;
+    text-align: center;
+    font-family: "Helvetica Neue";
+    background-color: #b3ecf0;
+}
+
+.soundCards {
+    display: flex;
+}
+
+.card1 {
+    border: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 100px;
+    width: 100%;
+    background: #60d394;
+}
+
+.card2 {
+    border: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 100px;
+    width: 100%;
+    background: #d36060;
+}
+
+.card3 {
+    border: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 100px;
+    width: 100%;
+    background-color: #c060d3;
+}
+
+.card4 {
+    border: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 100px;
+    width: 100%;
+    background: #d3d160;
+}
+
+.card5 {
+    border: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 100px;
+    width: 100%;
+    background: #606bd3;
+}
+
+.card6 {
+    border: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 100px;
+    width: 100%;
+    background: #60c2d3;
+}
