@@ -3,6 +3,10 @@ const cards = document.querySelectorAll('.soundCards div');
 const audio = document.querySelectorAll('.audio');
 
 let currentMusic = [];
+const color = ['#60d394', '#d36060', '#c060d3', '#d3d160',
+    '#606bd3',
+    '#60c2d3'
+];
 
 function musicPlayer(music) {
     if (currentMusic.length) {
@@ -16,22 +20,20 @@ function musicPlayer(music) {
 
 
 function animation(color) {
-    const visualElement = document.createElement('div');
+    const visualElement = document.createElement("div");
     visualElement.style.backgroundColor = color;
     visualElement.style.animation = "myJump 5sec ease";
     animationElement.appendChild(visualElement);
-
-
-
-
+    visualElement.addEventListener("animationend", () => {
+        animationElement.removeChild(this);
+    })
 }
 
 
 cards.forEach((card, index) => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (color) => {
         musicPlayer(audio[index]);
-        console.log(card.getAttribute("background"));
-        //animation(this.getAttribute("background"));
-        //currentMusic.push(audio[index]);
+        animation(color[index]);
+
     })
 });
