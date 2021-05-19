@@ -1,4 +1,4 @@
-const animationElement = document.querySelectorAll('.visual');
+const animationElement = document.getElementById("visual");
 const cards = document.querySelectorAll('.soundCards div');
 const audio = document.querySelectorAll('.audio');
 
@@ -22,7 +22,7 @@ function musicPlayer(music) {
 function animation(color) {
     const visualElement = document.createElement("div");
     visualElement.style.backgroundColor = color;
-    visualElement.style.animation = "myJump 5sec ease";
+    visualElement.style.animation = "jump 1s ease";
     animationElement.appendChild(visualElement);
     visualElement.addEventListener("animationend", () => {
         animationElement.removeChild(this);
@@ -31,7 +31,7 @@ function animation(color) {
 
 
 cards.forEach((card, index) => {
-    card.addEventListener('click', (color) => {
+    card.addEventListener('click', () => {
         musicPlayer(audio[index]);
         animation(color[index]);
 
